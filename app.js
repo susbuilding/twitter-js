@@ -9,6 +9,7 @@ app.use(function (req, res, next){ //need this first
 
 app.use('/special/', function (req, res, next){ //middleware- anything starting with special
     console.log('you reached the special area');
+    //res.send('you reached the special area');
     next();
 })
 
