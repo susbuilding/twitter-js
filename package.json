@@ -1,0 +1,14 @@
+{
+  "name": "twitter-js",
+  "version": "1.0.0",
+  "description": "a micro-blogging app",
+  "main": "index.js",
+  "scripts": {
+    "test": "..."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
