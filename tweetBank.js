@@ -42,4 +42,4 @@ module.exports.add('spongebob', 'squarepants');
 console.log(module.exports.find({ 'name': 'spongebob' }));
 
 
-// console.log(data);
+console.log(data);
