@@ -37,5 +37,6 @@ var locals = {
 }
 
 nunjucks.render('index.html', locals, function (err, output) {
-    //console.log(output);
+    if(err) return console.error(err);
+    console.log(output);
 });
