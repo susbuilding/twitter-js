@@ -2,8 +2,11 @@ const _ = require('lodash');
 
 var data = [];
 
+var uniqueId = 0;
+
 function add (name, content) {
-  data.push({ name: name, content: content });
+  data.push({ name: name, content: content, id: uniqueId });
+  uniqueId++;
 }
 
 function list () {
