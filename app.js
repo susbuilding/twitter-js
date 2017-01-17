@@ -20,13 +20,14 @@ app.listen(3000, function(){
     console.log('server listening')
 });
 
-app.set('view engine', 'html');
-app.engine('html', nunjucks.render);
+//boilerplate
+app.set('view engine', 'html'); //where to find the views
+app.engine('html', nunjucks.render); //what file extension do our templates have
 nunjucks.configure('views', {
-  noCache: true,
-  express: app
+  noCache: true
 });
 
+//sol vid says: this is what views > index.html looks at to find title and people
 var locals = {
   title: 'twatter',
   people: [
@@ -38,5 +39,5 @@ var locals = {
 
 nunjucks.render('index.html', locals, function (err, output) {
     if(err) return console.error(err);
-    console.log(output);
+    //console.log('rendering');
 });
