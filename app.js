@@ -3,7 +3,7 @@ const app = express();
 
 
 app.use(function (req, res, next){ //need this first
-    console.log('Request:', req.method, req.path);
+    console.log('Request:', req.method, req.path); //find status-getter
     next();
 })
 
