@@ -1,4 +1,5 @@
 const express = require( 'express');
+const nunjucks = require('nunjucks');
 const app = express();
 
 
@@ -14,7 +15,7 @@ app.use('/special/', function (req, res, next){ //middleware- anything starting 
 })
 
 app.get('/', function(req,res) {
-    res.send('Hello Twitter')
+    res.render('index.html');
 })
 
 app.get('/news', function(req,res) {
@@ -23,4 +24,25 @@ app.get('/news', function(req,res) {
 
 app.listen(3000, function(){
     console.log('server listening')
+});
+
+app.set('view engine', 'html');
+app.engine('html', nunjucks.render);
+
+var locals = {
+  title: 'twatter',
+  people: [
+    {name: 'luisa'},
+    {name: 'susanna'},
+    {name: 'david bowie'}
+  ]
+}
+
+nunjucks.configure('views', {
+  noCache: true,
+  express: app
+});
+
+nunjucks.render('index.html', locals, function (err, output) {
+    console.log(output);
 });
