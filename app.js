@@ -12,16 +12,9 @@ app.use(function (req, res, next){ //need this first
 
 app.use('/special/', function (req, res, next){ //middleware- anything starting with special
     console.log('you reached the special area');
-    //res.send('you reached the special area');
     next();
 })
-// app.get('/', function(req,res) {
-//     res.render('index.html', locals);
-// })
-//
-// app.get('/news', function(req,res) {
-//     res.send('Hello news')
-// })
+
 
 app.listen(3000, function(){
     console.log('server listening')
@@ -44,5 +37,5 @@ var locals = {
 }
 
 nunjucks.render('index.html', locals, function (err, output) {
-    console.log(output);
+    //console.log(output);
 });

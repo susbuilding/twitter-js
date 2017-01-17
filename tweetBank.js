@@ -42,7 +42,6 @@ for (let i = 0; i < 10; i++) {
 }
 
 module.exports.add('spongebob', 'squarepants');
-console.log(module.exports.find({ 'name': 'spongebob' }));
 
 
-console.log(data);
+//console.log(data);
