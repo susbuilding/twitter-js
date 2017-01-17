@@ -13,9 +13,8 @@ app.use('/special/', function (req, res, next){ //middleware- anything starting 
     //res.send('you reached the special area');
     next();
 })
-
 app.get('/', function(req,res) {
-    res.render('index.html');
+    res.render('index.html', locals);
 })
 
 app.get('/news', function(req,res) {
@@ -28,6 +27,10 @@ app.listen(3000, function(){
 
 app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
+nunjucks.configure('views', {
+  noCache: true,
+  express: app
+});
 
 var locals = {
   title: 'twatter',
@@ -38,11 +41,7 @@ var locals = {
   ]
 }
 
-nunjucks.configure('views', {
-  noCache: true,
-  express: app
-});
-
 nunjucks.render('index.html', locals, function (err, output) {
     console.log(output);
 });
+
