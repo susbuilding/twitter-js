@@ -2,6 +2,7 @@ const express = require( 'express');
 const app = express();
 const nunjucks = require('nunjucks');
 const routes = require('./routes/');
+const bodyParser = require('body-parser');
 
 app.use('/', routes);
 
@@ -15,6 +16,7 @@ app.use('/special/', function (req, res, next){ //middleware- anything starting 
     next();
 })
 
+app.use(bodyParser.urlencoded({ extended: true })); //for HTML form submits for posting tweets
 
 app.listen(3000, function(){
     console.log('server listening')
